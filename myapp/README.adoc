@@ -1,22 +1,22 @@
 = Myapp
 Saravanan M <saravanan.murugesansg@gmail.com>
-v0.0.1, 25 Janvier 2017
+v0.0.1, 25 May 2017
 
 
 This gem provides a CLI (Command Line Interface)
-that allows the following apps  to work together:
+that allows the client-server to work:
 
-. The client app
-  * Reads 1024 bytes from /dev/urandom
-  * Cleans out all non UTF-8 compliant chars
-  * Replaces all spaces with asterix
-  * Sends this data to a server via TCPSocket
+. client
+  1 Reads 1024 bytes from /dev/urandom
+  2 Cleans out all non UTF-8 compliant chars
+  3 Replaces all spaces with asterix
+  4 Sends this data to a server via TCPSocket
 
-. The server app
+. server
 
-  * Listens for any connections
-  * Accepts the data from the client app
-  * Prints it into a log file
+  1 Listens for any connections
+  2 Accepts the data from the client app
+  3 Prints it into a log file
 
 
 == Installation
@@ -34,16 +34,12 @@ $ gem install myapp
 
 - If you have access to the Internet, obtain the source code from Github repository.
 
-  $ git clone https://github.com/sarav957/myapp.git
+  $ git clone https://github.com/saravanmuru/myapp.git
 
-- If you have access to the ChristianKyony_SE_Ruby_Network.zip archive, go to the Code folder.
+- After downloading  myapp-master.zip archive, go to the myapp folder.
 
-  $ unzip ChristianKyony_SE_Ruby_Network
-  $ cd Code
-
-- Access the source code folder directory.
-
-  $ cd crossover
+  $ unzip myapp-master
+  $ cd myapp
 
 - Install the dependencies
 
@@ -70,7 +66,7 @@ The server will be listening on TCP port 50000  and will log all data received f
 
 You should see something similar to the following:
 
-   [Wed Jan 25 22:50:02 2017] Myapp::Server 127.0.0.1:50000 start
+   [Thurs May 25 22:50:02 2017] Myapp::Server 127.0.0.1:50000 start
 
 To send data to the server on the default port, run the command below
 
