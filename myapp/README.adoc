@@ -1,0 +1,141 @@
+= Myapp
+Saravanan M <saravanan.murugesansg@gmail.com>
+v0.0.1, 25 Janvier 2017
+
+
+This gem provides a CLI (Command Line Interface)
+that allows the following apps  to work together:
+
+. The client app
+  * Reads 1024 bytes from /dev/urandom
+  * Cleans out all non UTF-8 compliant chars
+  * Replaces all spaces with asterix
+  * Sends this data to a server via TCPSocket
+
+. The server app
+
+  * Listens for any connections
+  * Accepts the data from the client app
+  * Prints it into a log file
+
+
+== Installation
+
+=== From RubyGems
+
+The easiest way to install the application is to install as a gem from RubyGems.
+Run the command below
+
+----
+$ gem install myapp
+----
+
+=== From source code
+
+- If you have access to the Internet, obtain the source code from Github repository.
+
+  $ git clone https://github.com/sarav957/myapp.git
+
+- If you have access to the ChristianKyony_SE_Ruby_Network.zip archive, go to the Code folder.
+
+  $ unzip ChristianKyony_SE_Ruby_Network
+  $ cd Code
+
+- Access the source code folder directory.
+
+  $ cd crossover
+
+- Install the dependencies
+
+  $ bin/setup
+
+
+- Install the gem in your local machine
+
+  $ bundle exec rake install
+
+- Run the test suite
+
+  $ rake test
+
+== Usage
+
+=== Basic Usage
+
+You need only two commands. Start by launching the server app.
+
+   $ myapp server
+
+The server will be listening on TCP port 50000  and will log all data received from TCP clients in the ~/crossover.log file.
+
+You should see something similar to the following:
+
+   [Wed Jan 25 22:50:02 2017] Myapp::Server 127.0.0.1:50000 start
+
+To send data to the server on the default port, run the command below
+
+   $ myapp client
+
+The client will automatically send data to the running server.
+You should see something similar to the following:
+
+    Sending 504 bytes to port 50000 on 127.0.0.1.
+    Vw9y4**I{c:3r*Kl*l.}x;p[uD^'bY3av*5QvoZQ8*AJ]jZS&*^g*;6X_=G~HW_'*Ta`UmdO$6*9S'
+    )S:.DsDTB4'eI*da}rPvDS5Vyxs-@UJl&'!wl*5n10juoeLy(FUkh5:.bicDA=s:Nyl?t*=*8%qYIc{
+    $|c:vnzo;(Bb*+3K}Hr*F*4m*HNT^%+=Jm;nd$*&E0*o(EpU9/w?\ovuOn:2YJn3#I*&}xG'1;*wra-c4
+    {?7,*2L!li*y&?qy*(%:hEVDVr$5,F*DD*DfuG@Y'/>D](:?_*}/YoF\Syo2V*;_8W<*ezhxUiVbLwB
+    rwmty7Wp*vMX**Rp*^tj/H*i*O&j6==@1=.N7e\"1;RlbR/W)rE&<cQ"\H*&1oAmjmv'WP*=h&9*
+
+    Bye!
+
+=== Advanced Usage
+
+You can get help on available commands.
+
+  $ myapp help
+
+  Commands:
+    myapp --version, -v   # Print the version
+    myapp client          # Send data to a remote HOST listening on PORT
+    myapp help [COMMAND]  # Describe available commands or one specific command
+    myapp server          # Launch a server listening on PORT
+
+
+You can get help on specific options when launching the server app with `crossover server`
+
+  $ myapp help server
+
+  Usage:
+    myapp server
+
+  Options:
+    -h, [--host=HOST]          # Default: 127.0.0.1
+    -p, [--port=N]             # Default: 50000
+    -l, [--logfile=LOGFILE]    # Default: ~/crossover.log
+    -c, [--max-connections=N]  # Default: 1000
+
+
+You can get help on specific options when launching the client app with `crossover client`.
+
+  $ myapp client
+
+  Usage:
+    myapp client
+
+  Options:
+    -h, [--host=HOST]  # Default: 127.0.0.1
+    -p, [--port=N]     # Default: 50000
+    -d, [--data=DATA]
+
+
+== License
+
+The gem is available as open source
+under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
+== Assumptions
+
+- This gem has been developed for POSIX system (LINUX, MAC OS)
+
+

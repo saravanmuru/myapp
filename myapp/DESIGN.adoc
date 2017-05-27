@@ -1,0 +1,26 @@
+= Design Document
+Christian Kyony <ckyony@changamuka.com>
+v0.1, 26 Janvier 2017
+
+
+
+== High level requirement analysis
+
+. The client app
+  * Reads 1024 bytes from /dev/urandom
+  * Cleans out all non UTF-8 compliant chars
+  * Replaces all spaces with asterix
+  * Sends this data to a server via TCPSocket
+
+. The server app
+
+  * Listens for any connections
+  * Accepts the data from the client app
+  * Prints it into a log file
+
+=== Architecture
+
+The client app use 'TCPSocket' to communicate with the server app.
+The server app use 'GServer' to manage multiple TCP connections on different ports.
+
+
